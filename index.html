@@ -3,565 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday! 🎂</title>
+<title>Happy Birthday Junlyn 🎂</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#C9A84C;--gold-light:#F0D483;--blush:#F4C2C2;--rose:#D4799A;--deep:#2C1A2E;--cream:#FDF8F0;--petal:#FBF0F4}
+body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);overflow-x:hidden}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── HERO ── */
+.hero{min-height:100vh;background:linear-gradient(160deg,#1a0820 0%,#3d0f45 40%,#0d0515 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:2rem;text-align:center}
+.petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.petal{position:absolute;opacity:0;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:.9}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.8;transform:scale(1.3)}}
+.candles-row{display:flex;gap:14px;margin-bottom:2rem;flex-wrap:wrap;justify-content:center}
+.candle{display:flex;flex-direction:column;align-items:center;gap:4px}
+.flame{width:10px;height:18px;background:radial-gradient(ellipse at bottom,#FFE566,#FF9B00);border-radius:50% 50% 30% 30%;animation:flicker .6s ease-in-out infinite alternate;box-shadow:0 0 10px 5px rgba(255,180,0,.4)}
+@keyframes flicker{from{transform:scaleX(1) scaleY(1) rotate(-2deg)}to{transform:scaleX(.85) scaleY(1.1) rotate(2deg)}}
+.stick{width:10px;height:44px;border-radius:3px}
+.hero-label{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold-light);margin-bottom:.6rem;opacity:.85}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,9vw,6rem);font-weight:700;color:#fff;line-height:1.05;text-shadow:0 2px 40px rgba(201,168,76,.5)}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,7vw,4.5rem);font-weight:700;font-style:italic;color:#ffb3d1;margin-top:.4rem;text-shadow:0 0 40px rgba(255,140,180,.5);animation:nameglow 2.5s ease-in-out infinite alternate}
+@keyframes nameglow{from{text-shadow:0 0 20px rgba(255,140,180,.4),0 0 60px rgba(255,140,180,.2)}to{text-shadow:0 0 30px rgba(255,140,180,.8),0 0 80px rgba(255,140,180,.4)}}
+.hero-emoji-row{font-size:2rem;margin-top:1rem;letter-spacing:8px;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.scroll-hint{position:absolute;bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.35);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D483;
-    --blush: #F4C2C2;
-    --rose: #D4799A;
-    --deep: #2C1A2E;
-    --cream: #FDF8F0;
-    --petal: #FBF0F4;
-  }
+/* ── SECTION COMMONS ── */
+.section-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:.5rem}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:400;color:var(--deep);margin-bottom:1.5rem}
+.divider-line{width:60px;height:2px;background:linear-gradient(to right,var(--rose),var(--gold));margin:.75rem auto 2rem;border-radius:99px}
 
-  body {
-    background: var(--cream);
-    font-family: 'Lato', sans-serif;
-    color: var(--deep);
-    overflow-x: hidden;
-  }
+/* ── MUSIC ── */
+.music-section{background:var(--petal);padding:4.5rem 2rem;text-align:center;border-top:1px solid #EDD5E0;border-bottom:1px solid #EDD5E0}
+.player-card{display:inline-flex;flex-direction:column;align-items:center;gap:1.25rem;background:#fff;border:1px solid #EDD5E0;border-radius:24px;padding:2rem 2.5rem;max-width:380px;width:100%;box-shadow:0 8px 40px rgba(212,121,154,.1)}
+.note-icon{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--gold));display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(212,121,154,.3)}
+.song-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--deep)}
+.song-artist{font-size:.75rem;color:#bbb;letter-spacing:2px;text-transform:uppercase;margin-top:-.75rem}
+.progress-bar{width:100%;height:4px;background:#F0D5DF;border-radius:99px;overflow:hidden;cursor:pointer}
+.progress-fill{height:100%;background:linear-gradient(to right,var(--rose),var(--gold));border-radius:99px;transition:width .3s linear;width:0%}
+.time-row{width:100%;display:flex;justify-content:space-between;font-size:11px;color:#bbb;margin-top:-.75rem}
+.controls-row{display:flex;align-items:center;gap:1rem}
+.play-btn{width:64px;height:64px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--rose),#8B3060);color:white;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(212,121,154,.45);transition:transform .15s,box-shadow .15s}
+.play-btn:hover{transform:scale(1.07);box-shadow:0 10px 28px rgba(212,121,154,.6)}
+.vol-btn{background:none;border:1px solid #EDD5E0;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--rose);transition:background .2s}
+.vol-btn:hover{background:#FBF0F4}
+.eq-bars{display:flex;gap:3px;height:24px;align-items:flex-end}
+.bar{width:4px;border-radius:2px;background:linear-gradient(to top,var(--rose),var(--gold));animation:eq .8s ease-in-out infinite alternate}
+.bar:nth-child(2){animation-delay:.15s}.bar:nth-child(3){animation-delay:.3s}.bar:nth-child(4){animation-delay:.1s}.bar:nth-child(5){animation-delay:.25s}
+@keyframes eq{from{height:4px}to{height:22px}}
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(160deg, #2C1A2E 0%, #4A1040 40%, #1A0A1E 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem;
-  }
+/* ── ALBUM ── */
+.album-section{padding:5rem 2rem;max-width:1100px;margin:0 auto;text-align:center}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:2.5rem}
+.photo-frame{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;border:3px solid #fff;box-shadow:0 6px 28px rgba(44,26,46,.12);transition:transform .3s,box-shadow .3s;cursor:pointer}
+.photo-frame:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 16px 40px rgba(44,26,46,.22)}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:linear-gradient(160deg,#F9E8F0,#EDD5E0);color:var(--rose);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;padding:1rem;text-align:center}
+.photo-placeholder .ph-icon{font-size:2.5rem;opacity:.4}
+.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:2rem 1rem .85rem;background:linear-gradient(to top,rgba(44,26,46,.75),transparent);color:white;font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;text-align:left}
+.photo-number{position:absolute;top:10px;right:10px;width:26px;height:26px;background:rgba(255,255,255,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--rose)}
 
-  .petals {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .petal {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50% 0 50% 0;
-    opacity: 0;
-    animation: fall linear infinite;
-  }
-  @keyframes fall {
-    0%   { transform: translateY(-20px) rotate(0deg); opacity: 0.8; }
-    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-  }
+/* ── MESSAGE ── */
+.message-section{background:linear-gradient(160deg,#1a0820 0%,#3d0f45 60%,#0d0515 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
+.message-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.message-inner{max-width:760px;margin:0 auto;position:relative}
+.message-section .section-eyebrow{color:var(--gold-light)}
+.message-section .section-heading{color:#fff}
+.message-section .divider-line{background:linear-gradient(to right,var(--gold),var(--rose))}
+.greeting-tag{display:inline-block;padding:.4rem 1.25rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:99px;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:2rem}
+.message-body{font-size:1.08rem;line-height:2;color:rgba(255,255,255,.82);text-align:left}
+.message-body p{margin-bottom:1.5rem}
+.message-body .highlight{color:#ffb3d1;font-weight:400}
+.bible-card{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);border-radius:0 16px 16px 0;padding:2rem 2rem 2rem 2.25rem;text-align:left;margin-top:2.5rem;position:relative}
+.bible-card::before{content:'❝';position:absolute;top:-.5rem;left:1rem;font-size:3rem;color:rgba(201,168,76,.2);font-family:serif;line-height:1}
+.bible-verse{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--gold-light);line-height:1.8;margin-bottom:.85rem}
+.bible-ref{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,.55)}
+.closing-words{margin-top:2.5rem;font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.6);line-height:1.8}
 
-  .candles-row {
-    display: flex;
-    gap: 18px;
-    margin-bottom: 2rem;
-  }
-  .candle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-  .flame {
-    width: 10px;
-    height: 18px;
-    background: radial-gradient(ellipse at bottom, #FFE566, #FF9B00);
-    border-radius: 50% 50% 30% 30%;
-    animation: flicker 0.6s ease-in-out infinite alternate;
-    box-shadow: 0 0 8px 4px rgba(255,180,0,0.5);
-  }
-  @keyframes flicker {
-    from { transform: scaleX(1) scaleY(1) rotate(-2deg); opacity: 1; }
-    to   { transform: scaleX(0.85) scaleY(1.1) rotate(2deg); opacity: 0.9; }
-  }
-  .stick {
-    width: 10px;
-    height: 44px;
-    border-radius: 3px;
-    background: linear-gradient(to bottom, #C9A84C, #8B5E3C);
-  }
+/* ── MINI GAME ── */
+.game-section{padding:5rem 2rem;background:#fff;text-align:center;border-top:1px solid #EDD5E0}
+.game-wrap{max-width:520px;margin:0 auto}
+.game-canvas-container{position:relative;margin:1.5rem auto;border:2px solid #EDD5E0;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#FBF0F4 0%,#FDF8F0 100%)}
+#gameCanvas{display:block;width:100%;touch-action:none}
+.game-hud{display:flex;justify-content:space-around;align-items:center;padding:.7rem 1rem;background:#fff;border-bottom:1px solid #EDD5E0}
+.hud-stat{display:flex;flex-direction:column;align-items:center;gap:1px}
+.hud-label{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#ccc}
+.hud-val{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--rose)}
+.game-btn{display:inline-flex;align-items:center;gap:8px;padding:.7rem 2rem;border-radius:99px;border:none;background:linear-gradient(135deg,var(--rose),#8B3060);color:white;font-size:.9rem;font-weight:700;cursor:pointer;margin-top:1rem;box-shadow:0 4px 16px rgba(212,121,154,.4);transition:transform .15s,box-shadow .15s}
+.game-btn:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(212,121,154,.55)}
+.game-msg{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--rose);min-height:1.8rem;margin-top:.6rem}
+.badge{display:inline-block;padding:.3rem .9rem;border-radius:99px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:#FBF0F4;color:var(--rose);border:1px solid #EDD5E0;margin-top:.5rem}
 
-  .hero-label {
-    font-family: 'Lato', sans-serif;
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 0.75rem;
-    opacity: 0.85;
-  }
+/* ── STEP BY STEP GUIDE ── */
+.guide-section{padding:5rem 2rem;background:linear-gradient(160deg,#1a0820,#3d0f45,#0d0515);text-align:center}
+.guide-section .section-eyebrow{color:var(--gold-light)}
+.guide-section .section-heading{color:#fff}
+.guide-section .divider-line{background:linear-gradient(to right,var(--gold),var(--rose))}
+.guide-inner{max-width:780px;margin:0 auto}
+.guide-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.gtab{padding:.55rem 1.25rem;border-radius:99px;border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.5);font-size:.8rem;cursor:pointer;transition:all .2s;letter-spacing:1px}
+.gtab.active,.gtab:hover{background:linear-gradient(135deg,var(--rose),#8B3060);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(212,121,154,.4)}
+.guide-panel{display:none}
+.guide-panel.active{display:block}
+.step-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1rem;text-align:left;transition:background .2s}
+.step-card:hover{background:rgba(255,255,255,.08)}
+.step-header{display:flex;align-items:center;gap:1rem;margin-bottom:.75rem}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose),#8B3060);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.step-title{font-family:'Playfair Display',serif;font-size:1rem;color:#fff}
+.step-desc{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.7;padding-left:52px;margin-top:-.5rem}
+.code-block{background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:1rem 1.25rem;font-family:monospace;font-size:.78rem;color:#F0D483;margin:.75rem 0 0 52px;line-height:1.7;overflow-x:auto;white-space:pre;position:relative}
+.copy-btn{position:absolute;top:.5rem;right:.5rem;padding:.2rem .6rem;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:6px;color:var(--gold-light);font-size:.7rem;cursor:pointer;transition:background .2s}
+.copy-btn:hover{background:rgba(201,168,76,.3)}
+.tip-box{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:1rem 1.25rem;margin:.75rem 0 0 52px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6}
+.tip-box strong{color:var(--gold-light)}
+.host-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:1rem}
+.host-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1.25rem;text-align:center}
+.host-card .host-logo{font-size:2rem;margin-bottom:.5rem}
+.host-card .host-name{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.host-card .host-desc{font-size:.75rem;color:rgba(255,255,255,.45)}
+.host-card .host-link{display:inline-block;margin-top:.5rem;padding:.3rem .8rem;border-radius:99px;background:linear-gradient(135deg,var(--rose),#8B3060);color:#fff;font-size:.72rem;font-weight:700;text-decoration:none}
 
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 10vw, 6.5rem);
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
-    line-height: 1.05;
-    text-shadow: 0 2px 40px rgba(201,168,76,0.4);
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
+/* ── FOOTER ── */
+.footer{background:var(--deep);padding:3.5rem 2rem;text-align:center}
+.heart-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:1rem}
+.heart{font-size:1.6rem;animation:heartbeat 1.2s ease-in-out infinite;display:inline-block}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.2)}28%{transform:scale(1)}42%{transform:scale(1.15)}}
+.footer-name{font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;color:#ffb3d1;margin-bottom:.5rem}
+.footer-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,.45)}
+.footer-credit{font-size:.7rem;color:rgba(255,255,255,.2);margin-top:1.5rem;letter-spacing:3px}
 
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 5vw, 2.8rem);
-    font-style: italic;
-    color: var(--blush);
-    margin-top: 0.5rem;
-    text-align: center;
-  }
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:1000;align-items:center;justify-content:center;padding:2rem}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:90vh;border-radius:10px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox-close{position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.1);border:none;color:white;font-size:1.5rem;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.2)}
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255,255,255,0.4);
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    animation: bounce 2s ease-in-out infinite;
-  }
-  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
-  .scroll-hint svg { width: 20px; height: 20px; opacity: 0.5; }
-
-  /* ─── MUSIC PLAYER ─── */
-  .music-section {
-    background: var(--petal);
-    padding: 4rem 2rem;
-    text-align: center;
-    border-top: 1px solid #EDD5E0;
-    border-bottom: 1px solid #EDD5E0;
-  }
-
-  .section-eyebrow {
-    font-size: 10px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 0.5rem;
-  }
-
-  .section-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    color: var(--deep);
-    margin-bottom: 2rem;
-  }
-
-  .player-card {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    background: #fff;
-    border: 1px solid #EDD5E0;
-    border-radius: 20px;
-    padding: 2rem 2.5rem;
-    max-width: 380px;
-    width: 100%;
-    box-shadow: 0 4px 30px rgba(212,121,154,0.08);
-  }
-
-  .note-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--rose), var(--gold));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
-  }
-
-  .song-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    color: var(--deep);
-  }
-  .song-artist {
-    font-size: 0.8rem;
-    color: #999;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: -0.75rem;
-  }
-
-  .progress-bar {
-    width: 100%;
-    height: 3px;
-    background: #F0D5DF;
-    border-radius: 99px;
-    overflow: hidden;
-    position: relative;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(to right, var(--rose), var(--gold));
-    border-radius: 99px;
-    transition: width 0.5s linear;
-  }
-
-  .time-row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: #aaa;
-    margin-top: -0.75rem;
-  }
-
-  .play-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, var(--rose), #8B3060);
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 20px rgba(212,121,154,0.4);
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .play-btn:hover { transform: scale(1.06); box-shadow: 0 8px 28px rgba(212,121,154,0.55); }
-  .play-btn:active { transform: scale(0.96); }
-
-  .music-note-anim {
-    display: flex;
-    gap: 4px;
-    height: 24px;
-    align-items: flex-end;
-  }
-  .bar {
-    width: 4px;
-    border-radius: 2px;
-    background: var(--rose);
-    animation: eq 0.8s ease-in-out infinite alternate;
-  }
-  .bar:nth-child(2) { animation-delay: 0.15s; }
-  .bar:nth-child(3) { animation-delay: 0.3s; }
-  .bar:nth-child(4) { animation-delay: 0.1s; }
-  .bar:nth-child(5) { animation-delay: 0.25s; }
-  @keyframes eq {
-    from { height: 4px; }
-    to   { height: 22px; }
-  }
-
-  /* ─── PHOTO ALBUM ─── */
-  .album-section {
-    padding: 5rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 2.5rem;
-  }
-
-  .photo-frame {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 4/5;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 24px rgba(44,26,46,0.12);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-  .photo-frame:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 36px rgba(44,26,46,0.2);
-  }
-  .photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    background: linear-gradient(135deg, #F9E8F0, #EDD5E0);
-    color: var(--rose);
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  .photo-placeholder svg { width: 40px; height: 40px; opacity: 0.5; }
-
-  .photo-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem 1rem 0.75rem;
-    background: linear-gradient(to top, rgba(44,26,46,0.7), transparent);
-    color: white;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.85rem;
-    text-align: left;
-  }
-
-  .photo-number {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--rose);
-  }
-
-  /* ─── MESSAGE ─── */
-  .message-section {
-    background: linear-gradient(160deg, #2C1A2E 0%, #3D1A3A 100%);
-    padding: 5rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .message-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
-  }
-
-  .message-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .message-section .section-eyebrow { color: var(--gold-light); }
-  .message-section .section-heading { color: #fff; }
-
-  .message-body {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.9;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 3rem;
-    text-align: left;
-  }
-
-  .bible-card {
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 12px 12px 0;
-    padding: 1.75rem 2rem;
-    text-align: left;
-    margin-top: 2rem;
-  }
-
-  .bible-verse {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--gold-light);
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-  }
-
-  .bible-ref {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(201,168,76,0.6);
-  }
-
-  /* ─── FOOTER ─── */
-  .footer {
-    background: var(--cream);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-
-  .heart-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 1rem;
-  }
-  .heart {
-    font-size: 1.5rem;
-    animation: heartbeat 1.2s ease-in-out infinite;
-    display: inline-block;
-  }
-  @keyframes heartbeat {
-    0%,100%{transform:scale(1)} 14%{transform:scale(1.2)} 28%{transform:scale(1)} 42%{transform:scale(1.15)} 70%{transform:scale(1)}
-  }
-
-  .footer-text {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--rose);
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 600px) {
-    .photo-grid { grid-template-columns: 1fr; max-width: 300px; margin: 2rem auto 0; }
-    .player-card { padding: 1.5rem; }
-  }
-
-  /* ─── LIGHTBOX ─── */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.92);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-  .lightbox.open { display: flex; }
-  .lightbox img {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: 8px;
-    object-fit: contain;
-  }
-  .lightbox-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    line-height: 1;
-  }
+@media(max-width:640px){
+  .photo-grid{grid-template-columns:1fr;max-width:300px;margin:2rem auto 0}
+  .player-card{padding:1.5rem 1.25rem}
+  .guide-tabs{gap:6px}
+  .gtab{font-size:.72rem;padding:.45rem 1rem}
+}
 </style>
 </head>
 <body>
 
-<!-- ─── HERO ─── -->
+<!-- ══ HERO ══ -->
 <section class="hero">
   <div class="petals" id="petals"></div>
+  <div class="stars" id="stars"></div>
 
   <div class="candles-row">
     <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#D4799A,#8B3060)"></div></div>
     <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#C9A84C,#8B6914)"></div></div>
-    <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#D4799A,#8B3060)"></div></div>
+    <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#F4C2C2,#D4799A)"></div></div>
     <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#C9A84C,#8B6914)"></div></div>
+    <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#D4799A,#8B3060)"></div></div>
+    <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#F0D483,#C9A84C)"></div></div>
     <div class="candle"><div class="flame"></div><div class="stick" style="background:linear-gradient(#D4799A,#8B3060)"></div></div>
   </div>
 
-  <p class="hero-label">A special gift for</p>
+  <p class="hero-label">✨ A very special birthday for ✨</p>
   <h1 class="hero-title"><em>Happy</em><br>Birthday</h1>
-  <p class="hero-name">— to someone truly cherished —</p>
+  <p class="hero-name">Junlyn 🌸</p>
+  <p class="hero-emoji-row">🎂 🎁 🌺 💛 🎉</p>
 
   <div class="scroll-hint">
-    <span>scroll</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <span>scroll down</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
-<!-- ─── MUSIC ─── -->
+<!-- ══ MUSIC ══ -->
 <section class="music-section">
-  <p class="section-eyebrow">♪ &nbsp; A song for you &nbsp; ♪</p>
-  <h2 class="section-heading">Happy Birthday</h2>
+  <p class="section-eyebrow">♪ &nbsp; A song just for you &nbsp; ♪</p>
+  <h2 class="section-heading">Your Birthday Song</h2>
+  <div class="divider-line"></div>
 
   <div class="player-card">
     <div class="note-icon">🎵</div>
-    <p class="song-title">Happy Birthday to You</p>
-    <p class="song-artist">Traditional · Birthday Song</p>
+    <p class="song-title">Happy Birthday, Junlyn</p>
+    <p class="song-artist">A Special Song · Just For You</p>
 
-    <div class="music-note-anim" id="eqBars" style="display:none;">
+    <div class="eq-bars" id="eqBars" style="display:none">
+      <div class="bar" style="height:8px"></div><div class="bar" style="height:14px"></div>
+      <div class="bar" style="height:6px"></div><div class="bar" style="height:18px"></div>
       <div class="bar" style="height:10px"></div>
-      <div class="bar" style="height:6px"></div>
-      <div class="bar" style="height:16px"></div>
-      <div class="bar" style="height:8px"></div>
-      <div class="bar" style="height:12px"></div>
     </div>
 
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    <div class="progress-bar" onclick="seekAudio(event)">
+      <div class="progress-fill" id="progressFill"></div>
     </div>
-    <div class="time-row">
-      <span id="currentTime">0:00</span>
-      <span id="totalTime">0:28</span>
-    </div>
+    <div class="time-row"><span id="currentTime">0:00</span><span id="totalTime">0:00</span></div>
 
-    <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">▶</button>
+    <div class="controls-row">
+      <button class="vol-btn" onclick="toggleMute()" id="volBtn" title="Mute">🔊</button>
+      <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+      <button class="vol-btn" onclick="replayAudio()" title="Replay">🔄</button>
+    </div>
   </div>
 
-  <audio id="audio">
-    <source src="https://www.soundjay.com/misc/sounds/happy-birthday-1.mp3" type="audio/mpeg">
+  <!-- 
+    ════════════════════════════════════
+    AUDIO SOURCE — REPLACE THIS URL
+    See Step-by-Step Guide below ↓
+    ════════════════════════════════════
+  -->
+  <audio id="audio" preload="auto">
+    <source src="YOUR_AUDIO_FILE.mp3" type="audio/mpeg">
+    <!-- Fallback: https://www.soundjay.com/misc/sounds/happy-birthday-1.mp3 -->
   </audio>
 </section>
 
-<!-- ─── ALBUM ─── -->
+<!-- ══ PHOTO ALBUM ══ -->
 <section class="album-section">
-  <p class="section-eyebrow">Memories</p>
-  <h2 class="section-heading" style="font-family:'Playfair Display',serif;">Our Favourite Moments Together</h2>
+  <p class="section-eyebrow">📸 &nbsp; Memories &nbsp; 📸</p>
+  <h2 class="section-heading" style="font-family:'Playfair Display',serif">Our Favourite Moments Together</h2>
+  <div class="divider-line"></div>
 
   <div class="photo-grid">
+    <!-- PHOTO 1 — replace src="YOUR_PHOTO_1.jpg" -->
     <div class="photo-frame" onclick="openLightbox(0)">
-      <div class="photo-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <div class="photo-placeholder" id="ph0">
+        <div class="ph-icon">📷</div>
         <span>Photo 1</span>
-        <span style="font-size:9px;opacity:0.7">Replace with your picture</span>
+        <span style="font-size:9px;opacity:.6;margin-top:4px">See guide below ↓</span>
       </div>
       <div class="photo-caption">A wonderful memory ✨</div>
       <div class="photo-number">1</div>
     </div>
 
+    <!-- PHOTO 2 — replace src="YOUR_PHOTO_2.jpg" -->
     <div class="photo-frame" onclick="openLightbox(1)">
-      <div class="photo-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <div class="photo-placeholder" id="ph1">
+        <div class="ph-icon">📷</div>
         <span>Photo 2</span>
-        <span style="font-size:9px;opacity:0.7">Replace with your picture</span>
+        <span style="font-size:9px;opacity:.6;margin-top:4px">See guide below ↓</span>
       </div>
       <div class="photo-caption">Laughing together 💕</div>
       <div class="photo-number">2</div>
     </div>
 
+    <!-- PHOTO 3 — replace src="YOUR_PHOTO_3.jpg" -->
     <div class="photo-frame" onclick="openLightbox(2)">
-      <div class="photo-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <div class="photo-placeholder" id="ph2">
+        <div class="ph-icon">📷</div>
         <span>Photo 3</span>
-        <span style="font-size:9px;opacity:0.7">Replace with your picture</span>
+        <span style="font-size:9px;opacity:.6;margin-top:4px">See guide below ↓</span>
       </div>
       <div class="photo-caption">This moment, always 🌸</div>
       <div class="photo-number">3</div>
@@ -569,122 +263,487 @@
   </div>
 </section>
 
-<!-- ─── MESSAGE ─── -->
+<!-- ══ MESSAGE ══ -->
 <section class="message-section">
   <div class="message-inner">
-    <p class="section-eyebrow">From the heart</p>
-    <h2 class="section-heading" style="font-family:'Playfair Display',serif; margin-bottom:2rem;">A Message For You</h2>
+    <p class="section-eyebrow">💌 &nbsp; From the heart &nbsp; 💌</p>
+    <h2 class="section-heading" style="font-family:'Playfair Display',serif">A Message For Junlyn</h2>
+    <div class="divider-line"></div>
 
-    <p class="message-body">
-      On this special day, I want you to know how incredibly grateful I am that God placed you in my life. 
-      You bring so much joy, warmth, and light into the world around you — and today, all of that is 
-      being celebrated. 🎂
-      <br><br>
-      May this birthday be the beginning of your most beautiful chapter yet. May every dream you carry 
-      in your heart come to life, and may you always feel deeply loved — because you truly are.
-      <br><br>
-      Here's to you, to the laughter, the memories, and every wonderful adventure still ahead. 
-      Wishing you a birthday as radiant as you are. 
-      <br><br>
-      — With love, always 💛
-    </p>
+    <div class="greeting-tag">🎉 Happy Birthday, Junlyn 🎉</div>
 
-    <div class="bible-card">
-      <p class="bible-verse">
-        "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, 
-        plans to give you hope and a future."
+    <div class="message-body">
+      <p>
+        Wishing you a day filled with <span class="highlight">joy, peace, and gratitude</span>. 
+        May this new chapter of your life bring you the strength to keep going, the courage to face every challenge, 
+        and the wisdom to choose the right path — even when the road ahead feels uncertain.
       </p>
-      <p class="bible-ref">— Jeremiah 29:11 (NIV)</p>
+      <p>
+        Always remember that <span class="highlight">your journey is still unfolding</span>, and every step forward matters — 
+        even the small ones. The steps you've already taken have shaped you into the incredible person you are today, 
+        and they are preparing you for everything beautiful that still lies ahead.
+      </p>
+      <p>
+        On this special day, I want you to know how incredibly <span class="highlight">valued, seen, and loved</span> you are. 
+        You carry so much light within you — a kindness, a warmth, and a spirit that touches the lives of everyone around you. 
+        Never let anyone make you feel otherwise.
+      </p>
+      <p>
+        Life will have its seasons — some bright and joyful, some quiet and testing — but through every season, 
+        hold onto hope. <span class="highlight">Keep believing in yourself</span> and trust the process, 
+        because God is already writing your story, and it is a beautiful one.
+      </p>
+      <p>
+        May this year bring you <span class="highlight">new beginnings, answered prayers, and moments that take your breath away</span>. 
+        May your heart always find peace, your hands always find purpose, and your soul always find rest in knowing 
+        that you are never alone.
+      </p>
+
+      <div class="bible-card">
+        <p class="bible-verse">
+          "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, 
+          plans to give you <em>hope</em> and a <em>future</em>."
+        </p>
+        <p class="bible-ref">— Jeremiah 29:11 (NIV)</p>
+      </div>
+
+      <div class="closing-words" style="margin-top:2.5rem">
+        May you continue to grow, stay strong, and be blessed always.<br>
+        Happy Birthday, <em>Junlyn</em> 🌸 — you deserve all the love in the world. 💛
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- ══ MINI GAME ══ -->
+<section class="game-section">
+  <p class="section-eyebrow">🎮 &nbsp; Mini Game &nbsp; 🎮</p>
+  <h2 class="section-heading" style="font-family:'Playfair Display',serif">Catch the Birthday Hearts, Junlyn!</h2>
+  <div class="divider-line" style="background:linear-gradient(to right,var(--rose),var(--gold))"></div>
+  <p style="font-size:.88rem;color:#aaa;margin-top:-.5rem;margin-bottom:1.25rem;max-width:440px;margin-left:auto;margin-right:auto">
+    Click or tap the falling hearts 💕 before they disappear!<br>Avoid the 💀 skulls — they cost you a life!
+  </p>
+  <div class="game-wrap">
+    <div class="game-canvas-container">
+      <div class="game-hud">
+        <div class="hud-stat"><span class="hud-label">Score</span><span class="hud-val" id="scoreVal">0</span></div>
+        <div class="hud-stat"><span class="hud-label">Best</span><span class="hud-val" id="bestVal">0</span></div>
+        <div class="hud-stat"><span class="hud-label">Lives</span><span class="hud-val" id="livesVal">❤️❤️❤️</span></div>
+        <div class="hud-stat"><span class="hud-label">Time</span><span class="hud-val" id="timerVal">30</span></div>
+      </div>
+      <canvas id="gameCanvas" width="500" height="360"></canvas>
+    </div>
+    <p class="game-msg" id="gameMsg">Press Start to play! 🎂</p>
+    <div id="gameBadge" style="display:none"></div>
+    <button class="game-btn" id="gameStartBtn" onclick="startGame()">🎮 Start Game</button>
+  </div>
+</section>
+
+<!-- ══ STEP BY STEP GUIDE ══ -->
+<section class="guide-section">
+  <p class="section-eyebrow">📖 &nbsp; Setup Guide &nbsp; 📖</p>
+  <h2 class="section-heading" style="font-family:'Playfair Display',serif">How to Customize This Website</h2>
+  <div class="divider-line"></div>
+  <p style="font-size:.88rem;color:rgba(255,255,255,.45);margin-top:-.5rem;margin-bottom:2rem">Follow these steps to add your own photos, music, and go live!</p>
+
+  <div class="guide-inner">
+    <div class="guide-tabs">
+      <button class="gtab active" onclick="showTab('photos')">📸 Add Photos</button>
+      <button class="gtab" onclick="showTab('audio')">🎵 Add Music</button>
+      <button class="gtab" onclick="showTab('host')">🌐 Go Live</button>
+      <button class="gtab" onclick="showTab('qr')">📲 QR Code</button>
+    </div>
+
+    <!-- PHOTOS PANEL -->
+    <div class="guide-panel active" id="tab-photos">
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">1</div><div class="step-title">Open the HTML file in a text editor</div></div>
+        <div class="step-desc">Right-click on <strong>happy-birthday-junlyn.html</strong> → Open With → <strong>Notepad</strong> (Windows) or <strong>TextEdit</strong> (Mac). You can also use VS Code (free download).</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">2</div><div class="step-title">Upload your 3 photos somewhere online</div></div>
+        <div class="step-desc">Go to <strong>imgbb.com</strong> (free, no account needed). Click "Choose photo" → upload your photo → click "Upload" → copy the <strong>Direct link</strong> (ends in .jpg or .png).</div>
+        <div class="tip-box"><strong>Tip:</strong> The direct link looks like: <code>https://i.ibb.co/abc123/photo.jpg</code> — make sure to copy the one that ends in an image extension!</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">3</div><div class="step-title">Find the photo section in the code</div></div>
+        <div class="step-desc">Press <strong>Ctrl+F</strong> (Windows) or <strong>Cmd+F</strong> (Mac) in Notepad. Search for this text:</div>
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const photoSrcs=[null,null,null]</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">4</div><div class="step-title">Replace null with your photo links</div></div>
+        <div class="step-desc">Find that line near the bottom of the file (inside &lt;script&gt;) and replace <strong>null</strong> with your image URLs like this:</div>
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const photoSrcs=[
+  'https://i.ibb.co/abc123/photo1.jpg',
+  'https://i.ibb.co/def456/photo2.jpg',
+  'https://i.ibb.co/ghi789/photo3.jpg'
+];</div>
+        <div class="tip-box"><strong>Note:</strong> Each link must be inside single quotes <code>' '</code> and separated by commas. Keep the square brackets [ ].</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">5</div><div class="step-title">Edit the photo captions (optional)</div></div>
+        <div class="step-desc">Search for <code>photo-caption</code> in the code. You'll find 3 of them. Change the text inside to your own captions, like "Our first trip 🌴" or "Best day ever 💕".</div>
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>&lt;div class="photo-caption"&gt;Your caption here ✨&lt;/div&gt;</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">6</div><div class="step-title">Save the file</div></div>
+        <div class="step-desc">Press <strong>Ctrl+S</strong> (Windows) or <strong>Cmd+S</strong> (Mac) to save. Then double-click the HTML file to open it in your browser and check your photos!</div>
+      </div>
+    </div>
+
+    <!-- AUDIO PANEL -->
+    <div class="guide-panel" id="tab-audio">
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">1</div><div class="step-title">Choose your audio file</div></div>
+        <div class="step-desc">Pick an <strong>.mp3</strong> file — a birthday song, her favorite song, or even a voice message you recorded. You can use any MP3 file on your computer.</div>
+        <div class="tip-box"><strong>Tip:</strong> Free birthday songs: search <strong>"happy birthday mp3 free download"</strong> on Google, or use sites like <em>pixabay.com/music</em> for royalty-free songs.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">2</div><div class="step-title">Upload your MP3 online</div></div>
+        <div class="step-desc">Go to <strong>archive.org</strong> (free, no limit). Create a free account → click "Upload" → upload your MP3 → after it uploads, right-click the MP3 file name → "Copy link address". OR use <strong>GitHub</strong> (see the "Go Live" tab — upload your MP3 there too).</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">3</div><div class="step-title">Find the audio line in the code</div></div>
+        <div class="step-desc">Press <strong>Ctrl+F</strong> and search for:</div>
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>YOUR_AUDIO_FILE.mp3</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">4</div><div class="step-title">Replace with your audio URL</div></div>
+        <div class="step-desc">Replace <code>YOUR_AUDIO_FILE.mp3</code> with the link to your MP3 file:</div>
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>&lt;source src="https://yourlink.com/song.mp3" type="audio/mpeg"&gt;</div>
+        <div class="tip-box"><strong>If hosting on GitHub Pages:</strong> Just put the mp3 file in the same folder as the HTML and write <code>src="song.mp3"</code> — no full URL needed!</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">5</div><div class="step-title">Test it in your browser</div></div>
+        <div class="step-desc">Save the file and double-click to open in Chrome or Edge. Click the <strong>▶ play button</strong>. If you hear sound — you're done! 🎉 If not, check that the URL is correct and ends in .mp3.</div>
+      </div>
+    </div>
+
+    <!-- HOST PANEL -->
+    <div class="guide-panel" id="tab-host">
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">1</div><div class="step-title">Create a free GitHub account</div></div>
+        <div class="step-desc">Go to <strong>github.com</strong> → click "Sign up" → create your free account with your email. GitHub Pages lets you host any website for free!</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">2</div><div class="step-title">Create a new repository</div></div>
+        <div class="step-desc">After logging in, click the <strong>+</strong> icon (top right) → "New repository". Name it something like <code>junlyn-birthday</code>. Make sure it's set to <strong>Public</strong>. Click "Create repository".</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">3</div><div class="step-title">Upload your files</div></div>
+        <div class="step-desc">Inside your new repository, click <strong>"uploading an existing file"</strong>. Drag and drop <strong>happy-birthday-junlyn.html</strong> (and your MP3 if using one). Click "Commit changes".</div>
+        <div class="tip-box"><strong>Important:</strong> Rename your HTML file to <code>index.html</code> before uploading so it loads automatically as the homepage!</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">4</div><div class="step-title">Enable GitHub Pages</div></div>
+        <div class="step-desc">In your repository, click <strong>Settings</strong> → scroll down to <strong>"Pages"</strong> in the left menu → under "Branch", select <strong>main</strong> → click Save. Wait 1-2 minutes.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">5</div><div class="step-title">Get your website link!</div></div>
+        <div class="step-desc">Your site will be live at:</div>
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>https://YOUR-USERNAME.github.io/junlyn-birthday/</div>
+        <div class="tip-box"><strong>Example:</strong> If your GitHub username is <em>maria123</em>, your link is: <code>https://maria123.github.io/junlyn-birthday/</code> — share this link or use it for the QR code!</div>
+      </div>
+    </div>
+
+    <!-- QR PANEL -->
+    <div class="guide-panel" id="tab-qr">
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">1</div><div class="step-title">Get your website link first</div></div>
+        <div class="step-desc">Complete the <strong>"Go Live"</strong> steps above to get your GitHub Pages URL. You need a live URL before making a QR code.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">2</div><div class="step-title">Open the QR code generator</div></div>
+        <div class="step-desc">Open the file <strong>birthday-qr.html</strong> (included in your download) in any browser. OR go to <strong>qr-code-generator.com</strong> for free online QR generation.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">3</div><div class="step-title">Paste your link and generate</div></div>
+        <div class="step-desc">Paste your website URL into the input box → click <strong>"Generate ✨"</strong> → your QR code will appear instantly. Click <strong>"Download QR Code"</strong> to save it as a PNG image.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">4</div><div class="step-title">Print or share the QR code</div></div>
+        <div class="step-desc">You can: <strong>(A)</strong> Print it and stick it inside a physical birthday card 🎂 — when Junlyn scans it with her phone camera, it opens the website! <strong>(B)</strong> Send the QR image on Messenger, Viber, or WhatsApp.</div>
+        <div class="tip-box"><strong>How to scan:</strong> Just open the Camera app on any iPhone or Android, point it at the QR code, and tap the notification that pops up. No special app needed!</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><div class="step-num">5</div><div class="step-title">Done! 🎉</div></div>
+        <div class="step-desc">Junlyn scans the QR → her phone opens the birthday website → she hears the music, sees the photos, reads your message, and plays the mini game. She'll love it! 💕</div>
+      </div>
+    </div>
+
+    <!-- HOST OPTIONS -->
+    <div style="margin-top:2.5rem;text-align:left">
+      <p style="font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem;text-align:center">FREE HOSTING OPTIONS</p>
+      <div class="host-cards">
+        <div class="host-card">
+          <div class="host-logo">🐙</div>
+          <div class="host-name">GitHub Pages</div>
+          <div class="host-desc">Free forever, easiest option</div>
+          <a href="https://github.com" target="_blank" class="host-link">Open GitHub →</a>
+        </div>
+        <div class="host-card">
+          <div class="host-logo">⚡</div>
+          <div class="host-name">Netlify</div>
+          <div class="host-desc">Drag & drop deployment</div>
+          <a href="https://netlify.com" target="_blank" class="host-link">Open Netlify →</a>
+        </div>
+        <div class="host-card">
+          <div class="host-logo">🖼️</div>
+          <div class="host-name">ImgBB</div>
+          <div class="host-desc">Free photo hosting</div>
+          <a href="https://imgbb.com" target="_blank" class="host-link">Upload Photos →</a>
+        </div>
+        <div class="host-card">
+          <div class="host-logo">🎵</div>
+          <div class="host-name">Pixabay Music</div>
+          <div class="host-desc">Free royalty-free songs</div>
+          <a href="https://pixabay.com/music" target="_blank" class="host-link">Get Music →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
 <footer class="footer">
   <div class="heart-row">
     <span class="heart">🌸</span>
-    <span class="heart" style="animation-delay:0.4s">💛</span>
-    <span class="heart" style="animation-delay:0.2s">🌸</span>
+    <span class="heart" style="animation-delay:.4s">💛</span>
+    <span class="heart" style="animation-delay:.2s">🌺</span>
+    <span class="heart" style="animation-delay:.6s">💕</span>
+    <span class="heart" style="animation-delay:.3s">🌸</span>
   </div>
+  <p class="footer-name">Junlyn 🎂</p>
   <p class="footer-text">May God bless you abundantly today and always.</p>
-  <p style="font-size:0.75rem;color:#ccc;margin-top:1rem;letter-spacing:2px">MADE WITH LOVE ♡</p>
+  <p style="font-size:.88rem;color:rgba(255,255,255,.3);font-family:'Playfair Display',serif;font-style:italic;margin-top:.5rem">— Jeremiah 29:11 —</p>
+  <p class="footer-credit">MADE WITH LOVE ♡</p>
 </footer>
 
-<!-- ─── LIGHTBOX ─── -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lightboxImg" src="" alt="Memory">
 </div>
 
 <script>
-  // Petals
-  const colors = ['#F4C2C2','#EDD5E0','#F0D483','#FBEAF0','#fff'];
-  const container = document.getElementById('petals');
-  for (let i = 0; i < 30; i++) {
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.style.cssText = `
-      left: ${Math.random()*100}%;
-      top: ${Math.random()*-20}%;
-      background: ${colors[Math.floor(Math.random()*colors.length)]};
-      width: ${6+Math.random()*8}px;
-      height: ${6+Math.random()*8}px;
-      animation-duration: ${4+Math.random()*6}s;
-      animation-delay: ${Math.random()*8}s;
-      border-radius: ${Math.random()>0.5?'50% 0 50% 0':'50%'};
-    `;
-    container.appendChild(p);
+// ── STARS ──
+const sc=document.getElementById('stars');
+for(let i=0;i<60;i++){
+  const s=document.createElement('div');s.className='star';
+  const sz=Math.random()*2.5+1;
+  s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*4}s`;
+  sc.appendChild(s);
+}
+
+// ── PETALS ──
+const cl=['#F4C2C2','#EDD5E0','#F0D483','#FBEAF0','#ffb3d1','#fff'];
+const pc=document.getElementById('petals');
+for(let i=0;i<35;i++){
+  const p=document.createElement('div');p.className='petal';
+  p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*-20}%;background:${cl[Math.floor(Math.random()*cl.length)]};width:${6+Math.random()*9}px;height:${6+Math.random()*9}px;animation-duration:${4+Math.random()*7}s;animation-delay:${Math.random()*9}s;border-radius:${Math.random()>.5?'50% 0 50% 0':'50%'}`;
+  pc.appendChild(p);
+}
+
+// ── AUDIO ──
+const audio=document.getElementById('audio');
+const playBtn=document.getElementById('playBtn');
+const pFill=document.getElementById('progressFill');
+let playing=false,muted=false;
+
+function togglePlay(){
+  if(!playing){
+    audio.play().catch(()=>{document.getElementById('gameMsg')&&(document.getElementById('gameMsg').textContent='')});
+    playBtn.textContent='⏸';document.getElementById('eqBars').style.display='flex';playing=true;
+  } else {
+    audio.pause();playBtn.textContent='▶';document.getElementById('eqBars').style.display='none';playing=false;
   }
+}
+function toggleMute(){
+  muted=!muted;audio.muted=muted;
+  document.getElementById('volBtn').textContent=muted?'🔇':'🔊';
+}
+function replayAudio(){audio.currentTime=0;if(!playing){togglePlay()}}
+function seekAudio(e){
+  if(!audio.duration)return;
+  const r=e.currentTarget.getBoundingClientRect();
+  const pct=(e.clientX-r.left)/r.width;
+  audio.currentTime=pct*audio.duration;
+}
+audio.addEventListener('timeupdate',()=>{
+  const pct=audio.duration?(audio.currentTime/audio.duration)*100:0;
+  pFill.style.width=pct+'%';
+  const fmt=t=>`${Math.floor(t/60)}:${Math.floor(t%60).toString().padStart(2,'0')}`;
+  document.getElementById('currentTime').textContent=fmt(audio.currentTime);
+  document.getElementById('totalTime').textContent=fmt(audio.duration||0);
+});
+audio.addEventListener('ended',()=>{playBtn.textContent='▶';document.getElementById('eqBars').style.display='none';playing=false;pFill.style.width='0%'});
 
-  // Audio player
-  const audio = document.getElementById('audio');
-  const playBtn = document.getElementById('playBtn');
-  const progressFill = document.getElementById('progressFill');
-  const currentTimeEl = document.getElementById('currentTime');
-  const eqBars = document.getElementById('eqBars');
-  let playing = false;
+// ── PHOTOS ──
+// ════════════════════════════════════
+// REPLACE null WITH YOUR IMAGE URLS!
+// Example: 'https://i.ibb.co/abc/photo1.jpg'
+// ════════════════════════════════════
+const photoSrcs=[
+  null,  // ← Replace with Photo 1 URL
+  null,  // ← Replace with Photo 2 URL
+  null   // ← Replace with Photo 3 URL
+];
+const captions=['A wonderful memory ✨','Laughing together 💕','This moment, always 🌸'];
 
-  function togglePlay() {
-    if (!playing) {
-      audio.play().catch(() => {
-        playBtn.textContent = '▶';
-      });
-      playBtn.textContent = '⏸';
-      eqBars.style.display = 'flex';
-      playing = true;
-    } else {
-      audio.pause();
-      playBtn.textContent = '▶';
-      eqBars.style.display = 'none';
-      playing = false;
+function openLightbox(i){
+  if(!photoSrcs[i]){alert('📸 Add your photo URL in the code!\nSee the Step-by-Step Guide below ↓');return}
+  document.getElementById('lightboxImg').src=photoSrcs[i];
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
+
+// Build photo frames with real images if URLs provided
+photoSrcs.forEach((src,i)=>{
+  if(!src)return;
+  const ph=document.getElementById('ph'+i);
+  if(!ph)return;
+  const frame=ph.parentElement;
+  const img=document.createElement('img');img.src=src;img.alt='Memory '+(i+1);
+  frame.insertBefore(img,ph);ph.style.display='none';
+});
+
+// ── GUIDE TABS ──
+function showTab(name){
+  document.querySelectorAll('.guide-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  event.target.classList.add('active');
+}
+function copyCode(btn){
+  const block=btn.parentElement;
+  const text=block.textContent.replace('Copy','').trim();
+  navigator.clipboard.writeText(text).then(()=>{btn.textContent='✓ Copied!';setTimeout(()=>btn.textContent='Copy',2000)});
+}
+
+// ══ MINI GAME ══
+const canvas=document.getElementById('gameCanvas');
+const ctx=canvas.getContext('2d');
+const W=canvas.width,H=canvas.height;
+let items=[],score=0,best=0,lives=3,timeLeft=30,running=false,gTimer=null,sTimer=null;
+const EMOJIS=['❤️','💕','🌸','🎂','🎁','💛','🌺','🎉'];
+const SKULL='💀';
+function rand(a,b){return Math.random()*(b-a)+a}
+
+function spawnItem(){
+  const isSkull=Math.random()<(score>15?.22:.12);
+  const emoji=isSkull?SKULL:EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+  const size=isSkull?34:26+Math.random()*14;
+  items.push({x:rand(size,W-size),y:-size,vy:isSkull?rand(1.3,2.4):rand(.7,1.7),size,emoji,isSkull,alpha:1,clicked:false,pop:0});
+}
+
+function drawItems(){
+  ctx.clearRect(0,0,W,H);
+  items.forEach(it=>{
+    ctx.save();ctx.globalAlpha=it.alpha;
+    ctx.font=`${it.size}px serif`;ctx.textAlign='center';ctx.textBaseline='middle';
+    if(it.clicked){const s=1+it.pop*.35;ctx.translate(it.x,it.y);ctx.scale(s,s);ctx.fillText(it.emoji,0,0);}
+    else ctx.fillText(it.emoji,it.x,it.y);
+    ctx.restore();
+  });
+}
+
+function gameLoop(){
+  if(!running)return;
+  items.forEach(it=>{
+    if(it.clicked){it.pop+=.14;it.alpha-=.08;}
+    else it.y+=it.vy;
+    if(it.y>H+20&&!it.clicked){if(!it.isSkull){lives--;updateHUD();shakeCanvas()}it.alpha=0;}
+  });
+  items=items.filter(it=>it.alpha>0);
+  if(lives<=0){endGame();return;}
+  drawItems();
+  requestAnimationFrame(gameLoop);
+}
+
+function shakeCanvas(){canvas.style.animation='none';setTimeout(()=>canvas.style.animation='shake .3s ease',10)}
+
+function hitTest(e){
+  if(!running)return;
+  const rect=canvas.getBoundingClientRect();
+  const sx=W/rect.width,sy=H/rect.height;
+  const src=e.touches?e.touches[0]:e;
+  const mx=(src.clientX-rect.left)*sx,my=(src.clientY-rect.top)*sy;
+  items.forEach(it=>{
+    if(it.clicked)return;
+    if(Math.hypot(mx-it.x,my-it.y)<it.size){
+      it.clicked=true;it.pop=0;
+      if(it.isSkull){lives--;updateHUD();shakeCanvas();}else{score++;updateHUD();}
     }
-  }
-
-  audio.addEventListener('timeupdate', () => {
-    const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
-    progressFill.style.width = pct + '%';
-    const m = Math.floor(audio.currentTime / 60);
-    const s = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
-    currentTimeEl.textContent = `${m}:${s}`;
   });
+}
+canvas.addEventListener('click',hitTest);
+canvas.addEventListener('touchstart',e=>{e.preventDefault();hitTest(e)},{passive:false});
 
-  audio.addEventListener('ended', () => {
-    playBtn.textContent = '▶';
-    eqBars.style.display = 'none';
-    playing = false;
-    progressFill.style.width = '0%';
-  });
+function updateHUD(){
+  document.getElementById('scoreVal').textContent=score;
+  document.getElementById('bestVal').textContent=Math.max(best,score);
+  const h=['💔','❤️','❤️❤️','❤️❤️❤️'];
+  document.getElementById('livesVal').textContent=h[Math.max(0,Math.min(lives,3))];
+}
 
-  // Lightbox
-  const photoSrcs = [null, null, null]; // placeholders; add real image URLs here
-  function openLightbox(i) {
-    if (!photoSrcs[i]) return;
-    document.getElementById('lightboxImg').src = photoSrcs[i];
-    document.getElementById('lightbox').classList.add('open');
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-  }
+function startGame(){
+  items=[];score=0;lives=3;timeLeft=30;running=true;
+  document.getElementById('gameStartBtn').textContent='🔄 Restart';
+  document.getElementById('gameMsg').textContent='Catch the hearts, Junlyn! 💕';
+  document.getElementById('gameBadge').style.display='none';
+  updateHUD();document.getElementById('timerVal').textContent=30;
+  clearInterval(gTimer);clearInterval(sTimer);
+  sTimer=setInterval(()=>{if(running&&items.length<14)spawnItem();},650);
+  gTimer=setInterval(()=>{timeLeft--;document.getElementById('timerVal').textContent=timeLeft;if(timeLeft<=0)endGame();},1000);
+  requestAnimationFrame(gameLoop);
+}
+
+function endGame(){
+  running=false;clearInterval(gTimer);clearInterval(sTimer);
+  if(score>best)best=score;
+  document.getElementById('bestVal').textContent=best;
+  let msg,badge;
+  if(score>=30){msg='🏆 Champion! Junlyn is a pro!';badge='Birthday Champion 🏆'}
+  else if(score>=20){msg='🎉 Amazing catch! So much love!';badge='Heart Catcher 💕'}
+  else if(score>=10){msg='🌸 Great job! Keep going!';badge='Love Collector 🌸'}
+  else{msg='💛 Try again — you got this!';badge='Birthday Sweetie 🍰'}
+  document.getElementById('gameMsg').textContent=msg;
+  const b=document.getElementById('gameBadge');
+  b.innerHTML=`<span class="badge">Your badge: ${badge}</span>`;b.style.display='block';
+  document.getElementById('gameStartBtn').textContent='🎮 Play Again';
+  ctx.clearRect(0,0,W,H);
+  ctx.font='54px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('🎂',W/2,H/2-36);
+  ctx.font='bold 20px Lato,sans-serif';ctx.fillStyle='#D4799A';
+  ctx.fillText(`Junlyn's Score: ${score}`,W/2,H/2+20);
+  ctx.font='14px Lato,sans-serif';ctx.fillStyle='#bbb';
+  ctx.fillText(`Best: ${best}`,W/2,H/2+50);
+}
+
+// Init canvas
+const style=document.createElement('style');
+style.textContent='@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}';
+document.head.appendChild(style);
+ctx.clearRect(0,0,W,H);
+ctx.font='52px serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('🎮',W/2,H/2-24);
+ctx.font='16px Lato,sans-serif';ctx.fillStyle='#D4799A';ctx.fillText('Press Start to play! 💕',W/2,H/2+30);
 </script>
 </body>
 </html>
