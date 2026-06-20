@@ -224,7 +224,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
 <!-- ══ PHOTO ALBUM ══ -->
 <section class="album-section">
   <p class="section-eyebrow">📸 &nbsp; Memories &nbsp; 📸</p>
-  <h2 class="section-heading" style="font-family:'Playfair Display',serif">Your Favourite Moments Together</h2>
+  <h2 class="section-heading" style="font-family:'Playfair Display',serif">Your Favourite Moments</h2>
   <div class="divider-line"></div>
 
   <div class="photo-grid">
