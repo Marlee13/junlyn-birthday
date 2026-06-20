@@ -228,7 +228,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
   <div class="divider-line"></div>
 
   <div class="photo-grid">
-    <!-- PHOTO 1 — replace src="YOUR_PHOTO_1.jpg" -->
+    <-- PHOTO 1 — <img width="960" height="958" alt="Image" src="https://github.com/user-attachments/assets/4076eeac-b212-42d1-9234-1abfac9e5bd3" /> src="YOUR_PHOTO_1.jpg" -->
     <div class="photo-frame" onclick="openLightbox(0)">
       <div class="photo-placeholder" id="ph0">
         <div class="ph-icon">📷</div>
