@@ -191,18 +191,18 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
     <p class="song-title">Happy Birthday, Junlyn</p>
     <p class="song-artist">A Special Song · Just For You</p>
 
-    <div class="eq-bars" id="eqBars" style="display:none">
+  <div class="eq-bars" id="eqBars" style="display:none">
       <div class="bar" style="height:8px"></div><div class="bar" style="height:14px"></div>
       <div class="bar" style="height:6px"></div><div class="bar" style="height:18px"></div>
       <div class="bar" style="height:10px"></div>
     </div>
 
-    <div class="progress-bar" onclick="seekAudio(event)">
+  <div class="progress-bar" onclick="seekAudio(event)">
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <div class="time-row"><span id="currentTime">0:00</span><span id="totalTime">0:00</span></div>
 
-    <div class="controls-row">
+  <div class="controls-row">
       <button class="vol-btn" onclick="toggleMute()" id="volBtn" title="Mute">🔊</button>
       <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
       <button class="vol-btn" onclick="replayAudio()" title="Replay">🔄</button>
@@ -217,7 +217,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
   -->
   <audio id="audio" preload="auto">
     <source src="YOUR_AUDIO_FILE.mp3" type="audio/mpeg">
-    <!-- Fallback: https://www.soundjay.com/misc/sounds/happy-birthday-1.mp3 -->
+    <-- Fallback: https://www.soundjay.com/misc/sounds/happy-birthday-1.mp3 -->
   </audio>
 </section>
 
@@ -250,7 +250,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
       <div class="photo-number">2</div>
     </div>
 
-    <!-- PHOTO 3 — replace src="YOUR_PHOTO_3.jpg" -->
+  <-- PHOTO 3 — <img width="1080" height="1077" alt="Image" src="https://github.com/user-attachments/assets/c19c268c-6492-4d74-80fb-a616e68e7fdf" /> src="YOUR_PHOTO_3.jpg" -->
     <div class="photo-frame" onclick="openLightbox(2)">
       <div class="photo-placeholder" id="ph2">
         <div class="ph-icon">📷</div>
@@ -263,16 +263,16 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
   </div>
 </section>
 
-<!-- ══ MESSAGE ══ -->
+<-- ══ MESSAGE ══ -->
 <section class="message-section">
   <div class="message-inner">
     <p class="section-eyebrow">💌 &nbsp; From the heart &nbsp; 💌</p>
     <h2 class="section-heading" style="font-family:'Playfair Display',serif">A Message For Junlyn</h2>
     <div class="divider-line"></div>
 
-    <div class="greeting-tag">🎉 Happy Birthday, Junlyn 🎉</div>
+  <div class="greeting-tag">🎉 Happy Birthday, Junlyn 🎉</div>
 
-    <div class="message-body">
+  <div class="message-body">
       <p>
         Wishing you a day filled with <span class="highlight">joy, peace, and gratitude</span>. 
         May this new chapter of your life bring you the strength to keep going, the courage to face every challenge, 
@@ -299,7 +299,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
         that you are never alone.
       </p>
 
-      <div class="bible-card">
+  <div class="bible-card">
         <p class="bible-verse">
           "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, 
           plans to give you <em>hope</em> and a <em>future</em>."
@@ -307,7 +307,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
         <p class="bible-ref">— Jeremiah 29:11 (NIV)</p>
       </div>
 
-      <div class="closing-words" style="margin-top:2.5rem">
+  <div class="closing-words" style="margin-top:2.5rem">
         May you continue to grow, stay strong, and be blessed always.<br>
         Happy Birthday, <em>Junlyn</em> 🌸 — you deserve all the love in the world. 💛
       </div>
@@ -315,7 +315,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
   </div>
 </section>
 
-<!-- ══ MINI GAME ══ -->
+<-- ══ MINI GAME ══ -->
 <section class="game-section">
   <p class="section-eyebrow">🎮 &nbsp; Mini Game &nbsp; 🎮</p>
   <h2 class="section-heading" style="font-family:'Playfair Display',serif">Catch the Birthday Hearts, Junlyn!</h2>
