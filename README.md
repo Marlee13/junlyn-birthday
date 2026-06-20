@@ -216,8 +216,8 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
     ════════════════════════════════════
   -->
   <audio id="audio" preload="auto">
-    <source src="YOUR_AUDIO_FILE.mp3" type="audio/mpeg">
-    <-- Fallback: https://www.soundjay.com/misc/sounds/happy-birthday-1.mp3 -->
+    <source src="[Happy Birthday To You - THE KIBOOMERS Birthday Party Song for Kids.mp3](https://github.com/user-attachments/files/29162006/Happy.Birthday.To.You.-.THE.KIBOOMERS.Birthday.Party.Song.for.Kids.mp3)" type="audio/mpeg">
+    <!-- Fallback: https://www.soundjay.com/misc/sounds/happy-birthday-1.mp3 -->
   </audio>
 </section>
 
