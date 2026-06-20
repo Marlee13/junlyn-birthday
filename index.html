@@ -239,7 +239,7 @@ body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--deep);ove
       <div class="photo-number">1</div>
     </div>
 
-    <!-- PHOTO 2 — replace src="YOUR_PHOTO_2.jpg" -->
+    <!-- PHOTO 2 — <img width="1536" height="2048" alt="Image" src="https://github.com/user-attachments/assets/93fb4669-a7a7-450d-af7f-5f2211147c68" /> src="YOUR_PHOTO_2.jpg" -->
     <div class="photo-frame" onclick="openLightbox(1)">
       <div class="photo-placeholder" id="ph1">
         <div class="ph-icon">📷</div>
